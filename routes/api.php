@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('ping', 'ChatController@ping');
+
+
+Route::get('/refreshtokens', function() {
+    return ['csrfToken' => csrf_token()];
+});
